@@ -29,6 +29,8 @@ RUN addgroup --system app && adduser --system --ingroup app app
 
 COPY --from=builder /wheels /wheels
 RUN pip install --no-cache-dir /wheels/*
+COPY . ./
+
 RUN chmod +x /app/scripts/docker-entrypoint.sh
 USER app
 
